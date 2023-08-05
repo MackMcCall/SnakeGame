@@ -7,18 +7,20 @@ Console.Title = "Snake";
 Console.CursorVisible = false;
 int x = Console.WindowWidth / 2;
 int y = Console.WindowHeight / 2;
+Border border = new Border();
+border.MakeBorder();
 
 while (true)
 {
-    Console.Clear();
+    //Console.Clear();
     Console.SetCursorPosition(x, y);
     Console.Write("#");
     ConsoleKeyInfo keyInfo = Console.ReadKey();
 
 
-    while (keyInfo.Key == ConsoleKey.LeftArrow && x > 0)
+    while (keyInfo.Key == ConsoleKey.LeftArrow && x > 2)
     {
-        Console.Clear();
+        //Console.Clear();
         Console.SetCursorPosition(x, y);
         Console.Write("#");
         x--;
@@ -34,9 +36,9 @@ while (true)
             }
         }
     }
-    while (keyInfo.Key == ConsoleKey.RightArrow && x < Console.WindowWidth - 1)
+    while (keyInfo.Key == ConsoleKey.RightArrow && x < Console.WindowWidth - 3)
     {
-        Console.Clear();
+        //Console.Clear();
         Console.SetCursorPosition(x, y);
         Console.Write("#");
         x++;
@@ -52,14 +54,14 @@ while (true)
             }
         }
     }
-    while (keyInfo.Key == ConsoleKey.UpArrow && y > 0)
+    while (keyInfo.Key == ConsoleKey.UpArrow && y > 1)
     {
-        Console.Clear();
+        //Console.Clear();
         Console.SetCursorPosition(x, y);
         Console.Write("#");
         y--;
         Thread.Sleep(150);
-        
+
         if (Console.KeyAvailable)
         {
             ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
@@ -70,9 +72,9 @@ while (true)
             }
         }
     }
-    while (keyInfo.Key == ConsoleKey.DownArrow && y < Console.WindowHeight - 1)
+    while (keyInfo.Key == ConsoleKey.DownArrow && y < Console.WindowHeight - 2)
     {
-        Console.Clear();
+        //Console.Clear();
         Console.SetCursorPosition(x, y);
         Console.Write("#");
         y++;
@@ -88,6 +90,7 @@ while (true)
             }
         }
     }
+
 
     if (keyInfo.Key == ConsoleKey.Escape)
     {
