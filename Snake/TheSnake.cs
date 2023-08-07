@@ -8,34 +8,49 @@ namespace Snake
 {
     public class TheSnake
     {
-        public int x;
-        public int y;
-        public string xDir;
-        public string yDir;
+        public int xDir = 0;
+        public int yDir = 0;
 
-        ConsoleKeyInfo keyInfo = Console.ReadKey();
-        
+
+
+
+        public void SetSnake(int x, int y)
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write("#");
+        }
+
+
         public void Move(int x, int y, ConsoleKeyInfo keyInfo)
         {
             switch (keyInfo.Key)
             {
-                case (ConsoleKey.LeftArrow):
-                    //Console.Clear();
+                case ConsoleKey.LeftArrow:
                     Console.SetCursorPosition(x, y);
                     Console.Write("#");
-                    x--;
+                    xDir = - 1;
                     Thread.Sleep(100);
-
-                    if (Console.KeyAvailable)
-                    {
-                        ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
-
-                        if (breakKey.Key != ConsoleKey.LeftArrow)
-                        {
-                            keyInfo = breakKey;
-                        }
-                    }
                     break;
+                case ConsoleKey.RightArrow:
+                    Console.SetCursorPosition(x, y);
+                    Console.Write("#");
+                    xDir = 1;
+                    Thread.Sleep(100);
+                    break;
+                case ConsoleKey.UpArrow:
+                    Console.SetCursorPosition(x, y);
+                    Console.Write("#");
+                    yDir = 1;
+                    Thread.Sleep(150);
+                    break;
+                case ConsoleKey.DownArrow:
+                    Console.SetCursorPosition(x, y);
+                    Console.Write("#");
+                    yDir = -1;
+                    Thread.Sleep(150);
+                    break;
+                default:
+                    return;
             }
 
 
