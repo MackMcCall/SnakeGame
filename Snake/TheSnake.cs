@@ -3,132 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace Snake
 {
-    public class TheSnake
+    public class TheSnake : Movement
     {
-        public int xDir = 0;
-        public int yDir = 0;
+        List<(int X, int Y)> BodyPosition = new List<(int X, int Y)>();
 
-
-
-
-        public void SetSnake(int x, int y)
+        public TheSnake()
         {
-            Console.SetCursorPosition(x, y);
-            Console.Write("#");
+            
         }
 
-
-        public void Move(int x, int y, ConsoleKeyInfo keyInfo)
+        public TheSnake(int x, int y)
         {
-            switch (keyInfo.Key)
+            BodyPosition = new List<(int X, int Y)>()
             {
-                case ConsoleKey.LeftArrow:
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("#");
-                    xDir = - 1;
-                    Thread.Sleep(100);
-                    break;
-                case ConsoleKey.RightArrow:
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("#");
-                    xDir = 1;
-                    Thread.Sleep(100);
-                    break;
-                case ConsoleKey.UpArrow:
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("#");
-                    yDir = 1;
-                    Thread.Sleep(150);
-                    break;
-                case ConsoleKey.DownArrow:
-                    Console.SetCursorPosition(x, y);
-                    Console.Write("#");
-                    yDir = -1;
-                    Thread.Sleep(150);
-                    break;
-                default:
-                    return;
-            }
-
-
-
-
-            //while (keyInfo.Key == ConsoleKey.LeftArrow && x > 2)
-            //{
-            //    //Console.Clear();
-            //    Console.SetCursorPosition(x, y);
-            //    Console.Write("#");
-            //    x--;
-            //    Thread.Sleep(100);
-
-            //    if (Console.KeyAvailable)
-            //    {
-            //        ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
-
-            //        if (breakKey.Key != ConsoleKey.LeftArrow)
-            //        {
-            //            keyInfo = breakKey;
-            //        }
-            //    }
-            //}
-            //while (keyInfo.Key == ConsoleKey.RightArrow && x < Console.WindowWidth - 3)
-            //{
-            //    //Console.Clear();
-            //    Console.SetCursorPosition(x, y);
-            //    Console.Write("#");
-            //    x++;
-            //    Thread.Sleep(100);
-
-            //    if (Console.KeyAvailable)
-            //    {
-            //        ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
-
-            //        if (breakKey.Key != ConsoleKey.RightArrow)
-            //        {
-            //            keyInfo = breakKey;
-            //        }
-            //    }
-            //}
-            //while (keyInfo.Key == ConsoleKey.UpArrow && y > 1)
-            //{
-            //    //Console.Clear();
-            //    Console.SetCursorPosition(x, y);
-            //    Console.Write("#");
-            //    y--;
-            //    Thread.Sleep(150);
-
-            //    if (Console.KeyAvailable)
-            //    {
-            //        ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
-
-            //        if (breakKey.Key != ConsoleKey.UpArrow)
-            //        {
-            //            keyInfo = breakKey;
-            //        }
-            //    }
-            //}
-            //while (keyInfo.Key == ConsoleKey.DownArrow && y < Console.WindowHeight - 2)
-            //{
-            //    //Console.Clear();
-            //    Console.SetCursorPosition(x, y);
-            //    Console.Write("#");
-            //    y++;
-            //    Thread.Sleep(150);
-
-            //    if (Console.KeyAvailable)
-            //    {
-            //        ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
-
-            //        if (breakKey.Key != ConsoleKey.DownArrow)
-            //        {
-            //            keyInfo = breakKey;
-            //        }
-            //    }
-            //}
+                (x, y)
+            };
         }
-
     }
 }
