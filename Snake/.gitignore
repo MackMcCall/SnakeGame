@@ -1,0 +1,7 @@
+﻿.vscode/
+.vs/
+/bin/
+/obj/
+/Debug/
+/Release/
+*.pdb
