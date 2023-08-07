@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace Snake
 {
@@ -10,26 +11,26 @@ namespace Snake
     {
         public void MakeBorder()
         {
-            Console.Clear();
-            for (int i = 1; i < Console.WindowWidth; i++)
+            Clear();
+            for (int i = 1; i < WindowWidth; i++)
             {
-                Console.SetCursorPosition(i, Console.WindowTop);
-                Console.Write("-");
+                SetCursorPosition(i, WindowTop);
+                Write("-");
             }
-            for (int i = 1; i < Console.WindowWidth; i++)
+            for (int i = 1; i < WindowWidth; i++)
             {
-                Console.SetCursorPosition(i, (Console.WindowTop + Console.WindowHeight - 1));
-                Console.Write("-");
+                SetCursorPosition(i, (WindowTop + WindowHeight - 1));
+                Write("-");
             }
-            for (int i = 1; i < Console.WindowHeight - 1; i++)
+            for (int i = 1; i < WindowHeight - 1; i++)
             {
-                Console.SetCursorPosition(1, i);
-                Console.Write("|");
+                SetCursorPosition(1, i);
+                Write("|");
             }
-            for (int i = 1; i < Console.WindowHeight - 1; i++)
+            for (int i = 1; i < WindowHeight - 1; i++)
             {
-                Console.SetCursorPosition(Console.WindowWidth - 1, i );
-                Console.Write("|");
+                SetCursorPosition(WindowWidth - 1, i );
+                Write("|");
             }
         }
     }
