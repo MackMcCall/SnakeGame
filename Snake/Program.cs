@@ -9,6 +9,7 @@ int x = Console.WindowWidth / 2;
 int y = Console.WindowHeight / 2;
 Border border = new Border();
 border.MakeBorder();
+//TheSnake snake = new TheSnake();
 
 while (true)
 {
@@ -16,6 +17,12 @@ while (true)
     Console.SetCursorPosition(x, y);
     Console.Write("#");
     ConsoleKeyInfo keyInfo = Console.ReadKey();
+    if (Console.KeyAvailable)
+    {
+        Console.ReadKey(true);
+        
+    }
+    //snake.Move(x, y, keyInfo);
 
 
     while (keyInfo.Key == ConsoleKey.LeftArrow && x > 2)
@@ -30,10 +37,10 @@ while (true)
         {
             ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
 
-            if (breakKey.Key != ConsoleKey.LeftArrow)
-            {
-                keyInfo = breakKey;
-            }
+            //if (breakKey.Key != ConsoleKey.LeftArrow)
+            //{
+            //    keyInfo = breakKey;
+            //}
         }
     }
     while (keyInfo.Key == ConsoleKey.RightArrow && x < Console.WindowWidth - 3)
@@ -48,10 +55,10 @@ while (true)
         {
             ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
 
-            if (breakKey.Key != ConsoleKey.RightArrow)
-            {
-                keyInfo = breakKey;
-            }
+            //if (breakKey.Key != ConsoleKey.RightArrow)
+            //{
+            //    keyInfo = breakKey;
+            //}
         }
     }
     while (keyInfo.Key == ConsoleKey.UpArrow && y > 1)
@@ -66,10 +73,10 @@ while (true)
         {
             ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
 
-            if (breakKey.Key != ConsoleKey.UpArrow)
-            {
-                keyInfo = breakKey;
-            }
+            //if (breakKey.Key != ConsoleKey.UpArrow)
+            //{
+            //    keyInfo = breakKey;
+            //}
         }
     }
     while (keyInfo.Key == ConsoleKey.DownArrow && y < Console.WindowHeight - 2)
@@ -84,10 +91,10 @@ while (true)
         {
             ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
 
-            if (breakKey.Key != ConsoleKey.DownArrow)
-            {
-                keyInfo = breakKey;
-            }
+            //if (breakKey.Key != ConsoleKey.DownArrow)
+            //{
+            //    keyInfo = breakKey;
+            //}
         }
     }
 
