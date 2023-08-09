@@ -7,7 +7,7 @@ using static System.Console;
 
 namespace Snake
 {
-    public class Movement 
+    public class Movement
     {
         
 
@@ -36,19 +36,23 @@ namespace Snake
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.LeftArrow:
-                        Printing.PrintSegment(x--, y);
+                        Printing.PrintSegment(x, y);
+                        ;
                         Thread.Sleep(100);
-                        continue;
+                        break;
                     case ConsoleKey.RightArrow:
-                        Printing.PrintSegment(x++, y);
+                        Printing.PrintSegment(x, y);
+                        x++;
                         Thread.Sleep(100);
                         break;
                     case ConsoleKey.UpArrow:
-                        Printing.PrintSegment(x, y--);
+                        Printing.PrintSegment(x, y);
+                        y--;
                         Thread.Sleep(160);
                         break;
                     case ConsoleKey.DownArrow:
-                        Printing.PrintSegment(x, y++);
+                        Printing.PrintSegment(x, y);
+                        y++;
                         Thread.Sleep(160);
                         break;
                     default:
