@@ -17,8 +17,8 @@ TheSnake snake = new TheSnake();
 
 Random r = new Random();
 
-//try
-//{
+try
+{
     //Printing.PrintSegment(x, y);
     Fruit f = new Fruit(r);
     f.NewFruit();
@@ -41,10 +41,10 @@ Random r = new Random();
         }
     }
 
-//}
-//catch
-//{
-//    Clear();
-//    Thread.Sleep(100);
-//    WriteLine("GAME OVER");
-//}
+}
+catch
+{
+    Clear();
+    Thread.Sleep(100);
+    WriteLine("GAME OVER");
+}
