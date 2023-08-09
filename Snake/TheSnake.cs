@@ -50,6 +50,8 @@ namespace Snake
 
         public void UpdateBodyPositions(Directions directionToMove)
         {
+            var tailXPos = _bodySegments.Last().xPos;
+            var tailYPos = _bodySegments.Last().yPos;
             for (int i = _bodySegments.Count - 1; i >= 0; i--)
             {
                 if (i == 0)
@@ -61,12 +63,19 @@ namespace Snake
                     _bodySegments[i].MoveSegment(_bodySegments[i - 1]);
                 }
             }
+            foreach (var segment in _bodySegments)
+            {
+                Printing.PrintSegment(segment.xPos, segment.yPos);
+            }
+            SetCursorPosition(tailXPos, tailYPos);
+            Write(' ');
         }
 
         public void Move(ConsoleKeyInfo keyInfo)
         {
-            //while (true)
-            //{
+            while (true)
+            {
+                keyInfo = MonitorInput(keyInfo);
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.LeftArrow:
@@ -88,11 +97,7 @@ namespace Snake
                     default:
                         return;
                 }
-                foreach (var segment in _bodySegments)
-                {
-                    Printing.PrintSegment(segment.xPos, segment.yPos);
-                }
-            //}
+            }
         }
 
     }
