@@ -9,23 +9,26 @@ namespace Snake
 {
     public class TheSnake
     {
-        public int Segments = 5;
-        
-        public List<int> BodyListX = new List<int>(50) { WindowWidth / 2 };
-        public List<int> BodyListY = new List<int>(50) { WindowHeight / 2 };
+        private List<Segments> _bodySegments;
 
         public TheSnake()
         {
-
+            _bodySegments = GenerateSegments();
+        }
+        public TheSnake(List<Segments> segments)
+        {
+            _bodySegments = segments;
         }
 
-        //public TheSnake()
-        //{
-        //    BodyList = new List<(int X, int Y)>(5)
-        //    {
-
-        //    };
-        //}
+        public List<Segments> GenerateSegments()
+        {
+            return new List<Segments>()
+            { 
+                new Segments(WindowWidth / 2, WindowHeight / 2), 
+                new Segments(WindowWidth / 2, WindowHeight / 2 - 1), 
+                new Segments(WindowWidth / 2, WindowHeight / 2 - 2), 
+            };
+        }
 
 
         public ConsoleKeyInfo MonitorInput(ConsoleKeyInfo currentKey)
@@ -45,36 +48,51 @@ namespace Snake
                 return currentKey;
         }
 
+        public void UpdateBodyPositions(Directions directionToMove)
+        {
+            for (int i = _bodySegments.Count - 1; i >= 0; i--)
+            {
+                if (i == 0)
+                {
+                    _bodySegments[i].MoveHead(directionToMove);
+                }
+                else
+                {
+                    _bodySegments[i].MoveSegment(_bodySegments[i - 1]);
+                }
+            }
+        }
+
         public void Move(ConsoleKeyInfo keyInfo)
         {
-            while (true)
-            {
+            //while (true)
+            //{
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.LeftArrow:
-                        BodyListX[0]--;
+                        UpdateBodyPositions(Directions.Left);
                         Thread.Sleep(100);
                         break;
                     case ConsoleKey.RightArrow:
-                        BodyListX[0]++;
+                        UpdateBodyPositions(Directions.Right);
                         Thread.Sleep(100);
                         break;
                     case ConsoleKey.UpArrow:
-                        BodyListY[0]--;
+                        UpdateBodyPositions(Directions.Up);
                         Thread.Sleep(160);
                         break;
                     case ConsoleKey.DownArrow:
-                        BodyListY[0]++;
+                        UpdateBodyPositions(Directions.Down);
                         Thread.Sleep(160);
                         break;
                     default:
                         return;
                 }
-                for (int i = 0; i < Segments; i++)
+                foreach (var segment in _bodySegments)
                 {
-                    Printing.PrintSegment(BodyListX[i], BodyListY[i]);
+                    Printing.PrintSegment(segment.xPos, segment.yPos);
                 }
-            }
+            //}
         }
 
     }

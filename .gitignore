@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ProjectEvaluation/snake.metadata.v7.bin
+/.vs/ProjectEvaluation/snake.projects.v7.bin
+/.vs/Snake/DesignTimeBuild/.dtbcache.v2
+/.vs/Snake/v17/.suo
+/.vs/Snake/v17/.futdcache.v2

@@ -27,15 +27,12 @@ Random r = new Random();
     {
         ConsoleKeyInfo keyInfo = ReadKey();
         snake.Move(keyInfo);
-        for (int i = 0; i < snake.Segments; i--)
-        {
-            Printing.PrintSegment(snake.BodyListX[0], snake.BodyListY[0]);
-        }
+        
 
-        if (f.FruitX == snake.BodyListX[0] && f.FruitY == snake.BodyListY[0])
-        {
-            f.NewFruit();
-        }
+        //if (f.FruitX == snake.BodyListX[0] && f.FruitY == snake.BodyListY[0])
+        //{
+        //    f.NewFruit();
+        //}
 
 
         if (keyInfo.Key == ConsoleKey.Escape)
