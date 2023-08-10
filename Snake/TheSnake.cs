@@ -9,7 +9,7 @@ namespace Snake
 {
     public class TheSnake
     {
-        private List<Segments> _bodySegments;
+        public List<Segments> _bodySegments;
 
         public TheSnake()
         {

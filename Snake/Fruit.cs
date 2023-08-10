@@ -10,13 +10,13 @@ namespace Snake
     public class Fruit
     {
         
-        private readonly Random _random;
+        private Random _random = new Random();
         public int FruitX;
         public int FruitY;
 
-        public Fruit(Random random)
+        public Fruit()
         {
-            _random = random;
+            //_random = random;
         }
 
         public void NewFruit()

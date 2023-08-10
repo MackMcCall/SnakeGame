@@ -19,20 +19,19 @@ Random r = new Random();
 
 try
 {
-    //Printing.PrintSegment(x, y);
-    Fruit f = new Fruit(r);
+    Fruit f = new Fruit();
     f.NewFruit();
 
     while (true)
     {
         ConsoleKeyInfo keyInfo = ReadKey();
         snake.Move(keyInfo);
-        
 
-        //if (f.FruitX == snake.BodyListX[0] && f.FruitY == snake.BodyListY[0])
-        //{
-        //    f.NewFruit();
-        //}
+
+        if (snake._bodySegments[0].xPos == f.FruitX && snake._bodySegments[0].yPos == f.FruitY)
+        {
+            f.NewFruit();
+        }
 
 
         if (keyInfo.Key == ConsoleKey.Escape)
