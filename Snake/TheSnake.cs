@@ -23,10 +23,10 @@ namespace Snake
         public List<Segments> GenerateSegments()
         {
             return new List<Segments>()
-            { 
-                new Segments(WindowWidth / 2, WindowHeight / 2), 
-                new Segments(WindowWidth / 2, WindowHeight / 2 - 1), 
-                new Segments(WindowWidth / 2, WindowHeight / 2 - 2), 
+            {
+                new Segments(WindowWidth / 2, WindowHeight / 2),
+                new Segments(WindowWidth / 2, WindowHeight / 2 - 1),
+                new Segments(WindowWidth / 2, WindowHeight / 2 - 2),
             };
         }
 
@@ -52,6 +52,7 @@ namespace Snake
         {
             var tailXPos = _bodySegments.Last().xPos;
             var tailYPos = _bodySegments.Last().yPos;
+            
             for (int i = _bodySegments.Count - 1; i >= 0; i--)
             {
                 if (i == 0)
@@ -71,7 +72,7 @@ namespace Snake
             Write(' ');
         }
 
-        public void Move(ConsoleKeyInfo keyInfo)
+        public void Move(ConsoleKeyInfo keyInfo, Fruit f)
         {
             while (true)
             {
@@ -96,6 +97,12 @@ namespace Snake
                         break;
                     default:
                         return;
+                }
+                if (_bodySegments[0].xPos == f.FruitX && _bodySegments[0].yPos == f.FruitY)
+                {
+                    f.NewFruit();
+                    Segments freshSeg = new Segments(_bodySegments[_bodySegments.Count - 1].xPos, _bodySegments[_bodySegments.Count - 1].yPos);
+                    _bodySegments.Add(freshSeg);
                 }
             }
         }

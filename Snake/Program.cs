@@ -13,26 +13,20 @@ Border border = new Border();
 border.MakeBorder();
 
 TheSnake snake = new TheSnake();
+Fruit f = new Fruit();
 
 
-Random r = new Random();
+//Random r = new Random();
 
 try
 {
-    Fruit f = new Fruit();
-    f.NewFruit();
 
     while (true)
     {
+        f.NewFruit();
+
         ConsoleKeyInfo keyInfo = ReadKey();
-        snake.Move(keyInfo);
-
-
-        if (snake._bodySegments[0].xPos == f.FruitX && snake._bodySegments[0].yPos == f.FruitY)
-        {
-            f.NewFruit();
-        }
-
+        snake.Move(keyInfo, f);
 
         if (keyInfo.Key == ConsoleKey.Escape)
         {

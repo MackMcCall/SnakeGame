@@ -24,7 +24,7 @@ namespace Snake
             FruitX = _random.Next(2, 59);
             FruitY = _random.Next(1, 24);
             SetCursorPosition(FruitX, FruitY);
-            Write("TC");
+            Write("F");
         }
     }
 }
