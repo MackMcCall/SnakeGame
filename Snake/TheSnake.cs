@@ -89,20 +89,38 @@ namespace Snake
                         break;
                     case ConsoleKey.UpArrow:
                         UpdateBodyPositions(Directions.Up);
-                        Thread.Sleep(160);
+                        Thread.Sleep(170);
                         break;
                     case ConsoleKey.DownArrow:
                         UpdateBodyPositions(Directions.Down);
-                        Thread.Sleep(160);
+                        Thread.Sleep(170);
                         break;
                     default:
                         return;
                 }
+                
+                //eating the fruit
                 if (_bodySegments[0].xPos == f.FruitX && _bodySegments[0].yPos == f.FruitY)
                 {
                     f.NewFruit();
                     Segments freshSeg = new Segments(_bodySegments[_bodySegments.Count - 1].xPos, _bodySegments[_bodySegments.Count - 1].yPos);
                     _bodySegments.Add(freshSeg);
+                }
+                
+                //hitting the wall
+                if (_bodySegments[0].xPos == 1 || _bodySegments[0].xPos == WindowWidth - 1
+                    || _bodySegments[0].yPos == WindowTop || _bodySegments[0].yPos == WindowHeight - 1)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                
+                //overlapping
+                bool isOverlapping = _bodySegments.Any(segment => segment != _bodySegments[0] && segment != _bodySegments[1] &&
+                segment.xPos == _bodySegments[0].xPos && segment.yPos == _bodySegments[0].yPos);
+
+                if (isOverlapping)
+                {
+                    throw new ArgumentOutOfRangeException();
                 }
             }
         }

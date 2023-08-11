@@ -16,11 +16,8 @@ TheSnake snake = new TheSnake();
 Fruit f = new Fruit();
 
 
-//Random r = new Random();
-
 try
 {
-
     while (true)
     {
         f.NewFruit();
@@ -33,11 +30,8 @@ try
             return;
         }
     }
-
 }
-catch
+catch (ArgumentOutOfRangeException)
 {
-    Clear();
-    Thread.Sleep(100);
-    WriteLine("GAME OVER");
+    GameOver.Lose(x, y, border);
 }
