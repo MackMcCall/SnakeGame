@@ -390,3 +390,4 @@ FodyWeavers.xsd
 /.vs/Snake/v17/.suo
 /.vs/Snake/v17/.futdcache.v2
 >>>>>>> makingclasses
+/Snake/obj/Debug/net7.0/Snake.assets.cache
