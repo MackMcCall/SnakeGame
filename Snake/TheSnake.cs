@@ -85,10 +85,10 @@ namespace Snake
                 //Eating the fruit
                 if (_bodySegments[0].xPos == f.FruitX && _bodySegments[0].yPos == f.FruitY)
                 {
-                    f.NewFruit();
                     Segments freshSeg = new Segments(_bodySegments[_bodySegments.Count - 1].xPos, _bodySegments[_bodySegments.Count - 1].yPos);
                     _bodySegments.Add(freshSeg);
                     _speedIncrement -= .02;
+                    f.NewFruit();
                 }
                 
                 //Hitting the wall
