@@ -13,38 +13,25 @@ Border border = new Border();
 border.MakeBorder();
 
 TheSnake snake = new TheSnake();
+Fruit f = new Fruit();
 
-
-Random r = new Random();
 
 try
 {
-    //Printing.PrintSegment(x, y);
-    Fruit f = new Fruit(r);
-    f.NewFruit();
-
     while (true)
     {
+        f.NewFruit();
+
         ConsoleKeyInfo keyInfo = ReadKey();
-        snake.Move(keyInfo);
-        
-
-        //if (f.FruitX == snake.BodyListX[0] && f.FruitY == snake.BodyListY[0])
-        //{
-        //    f.NewFruit();
-        //}
-
+        snake.PlayGame(keyInfo, f);
 
         if (keyInfo.Key == ConsoleKey.Escape)
         {
             return;
         }
     }
-
 }
-catch
+catch (ArgumentOutOfRangeException)
 {
-    Clear();
-    Thread.Sleep(100);
-    WriteLine("GAME OVER");
+    GameOver.Lose(x, y, border);
 }

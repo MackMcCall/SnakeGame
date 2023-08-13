@@ -15,23 +15,27 @@ namespace Snake
             for (int i = 1; i < WindowWidth; i++)
             {
                 SetCursorPosition(i, WindowTop);
-                Write("-");
+                Write("\u2550");
             }
+            Thread.Sleep(1);
             for (int i = 1; i < WindowWidth; i++)
             {
                 SetCursorPosition(i, (WindowTop + WindowHeight - 1));
-                Write("-");
+                Write("\u2550");
             }
+            Thread.Sleep(1);
             for (int i = 1; i < WindowHeight - 1; i++)
             {
                 SetCursorPosition(1, i);
-                Write("|");
+                Write("\u2551");
             }
+            Thread.Sleep(1);
             for (int i = 1; i < WindowHeight - 1; i++)
             {
                 SetCursorPosition(WindowWidth - 1, i );
-                Write("|");
+                Write("\u2551");
             }
+            Thread.Sleep(1);
         }
     }
 }

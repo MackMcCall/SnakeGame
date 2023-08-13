@@ -10,13 +10,13 @@ namespace Snake
     public class Fruit
     {
         
-        private readonly Random _random;
+        private Random _random = new Random();
         public int FruitX;
         public int FruitY;
 
-        public Fruit(Random random)
+        public Fruit()
         {
-            _random = random;
+            //_random = random;
         }
 
         public void NewFruit()
@@ -24,7 +24,7 @@ namespace Snake
             FruitX = _random.Next(2, 59);
             FruitY = _random.Next(1, 24);
             SetCursorPosition(FruitX, FruitY);
-            Write("TC");
+            Write("F");
         }
     }
 }
