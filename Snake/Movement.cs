@@ -7,11 +7,11 @@ using static System.Console;
 
 namespace Snake
 {
-    public class Movement
+    public interface IInput
     {
         
 
-        public ConsoleKeyInfo MonitorInput(ConsoleKeyInfo currentKey)
+        public static ConsoleKeyInfo MonitorInput(ConsoleKeyInfo currentKey)
         {
             if (KeyAvailable)
             {
@@ -27,38 +27,5 @@ namespace Snake
             else
                 return currentKey;
         }
-
-        //public void Move(int x, int y, ConsoleKeyInfo keyInfo)
-        //{
-        //    while (true)
-        //    {
-        //        keyInfo = MonitorInput(keyInfo);
-        //        switch (keyInfo.Key)
-        //        {
-        //            case ConsoleKey.LeftArrow:
-        //                Printing.PrintSegment(x, y);
-        //                ;
-        //                Thread.Sleep(100);
-        //                break;
-        //            case ConsoleKey.RightArrow:
-        //                Printing.PrintSegment(x, y);
-        //                x++;
-        //                Thread.Sleep(100);
-        //                break;
-        //            case ConsoleKey.UpArrow:
-        //                Printing.PrintSegment(x, y);
-        //                y--;
-        //                Thread.Sleep(160);
-        //                break;
-        //            case ConsoleKey.DownArrow:
-        //                Printing.PrintSegment(x, y);
-        //                y++;
-        //                Thread.Sleep(160);
-        //                break;
-        //            default:
-        //                return;
-        //        }
-        //    }
-        //}
     }
 }

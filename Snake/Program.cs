@@ -23,7 +23,7 @@ try
         f.NewFruit();
 
         ConsoleKeyInfo keyInfo = ReadKey();
-        snake.Move(keyInfo, f);
+        snake.PlayGame(keyInfo, f);
 
         if (keyInfo.Key == ConsoleKey.Escape)
         {

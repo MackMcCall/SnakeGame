@@ -10,7 +10,7 @@ namespace Snake
     public class TheSnake
     {
         public List<Segments> _bodySegments;
-
+        public double _speedIncrement = 1.0;
         public TheSnake()
         {
             _bodySegments = GenerateSegments();
@@ -28,24 +28,6 @@ namespace Snake
                 new Segments(WindowWidth / 2, WindowHeight / 2 - 1),
                 new Segments(WindowWidth / 2, WindowHeight / 2 - 2),
             };
-        }
-
-
-        public ConsoleKeyInfo MonitorInput(ConsoleKeyInfo currentKey)
-        {
-            if (KeyAvailable)
-            {
-                ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
-
-                if (breakKey != currentKey)
-                {
-                    return breakKey;
-                }
-                else
-                    return currentKey;
-            }
-            else
-                return currentKey;
         }
 
         public void UpdateBodyPositions(Directions directionToMove)
@@ -72,49 +54,51 @@ namespace Snake
             Write(' ');
         }
 
-        public void Move(ConsoleKeyInfo keyInfo, Fruit f)
+        public void PlayGame(ConsoleKeyInfo keyInfo, Fruit f)
         {
             while (true)
             {
-                keyInfo = MonitorInput(keyInfo);
+                //Moving
+                keyInfo = IInput.MonitorInput(keyInfo);
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.LeftArrow:
                         UpdateBodyPositions(Directions.Left);
-                        Thread.Sleep(100);
+                        Thread.Sleep(Convert.ToInt16(120 * _speedIncrement));
                         break;
                     case ConsoleKey.RightArrow:
                         UpdateBodyPositions(Directions.Right);
-                        Thread.Sleep(100);
+                        Thread.Sleep(Convert.ToInt16(120 * _speedIncrement));
                         break;
                     case ConsoleKey.UpArrow:
                         UpdateBodyPositions(Directions.Up);
-                        Thread.Sleep(170);
+                        Thread.Sleep(Convert.ToInt16(200 * _speedIncrement));
                         break;
                     case ConsoleKey.DownArrow:
                         UpdateBodyPositions(Directions.Down);
-                        Thread.Sleep(170);
+                        Thread.Sleep(Convert.ToInt16(200 * _speedIncrement));
                         break;
                     default:
                         return;
                 }
                 
-                //eating the fruit
+                //Eating the fruit
                 if (_bodySegments[0].xPos == f.FruitX && _bodySegments[0].yPos == f.FruitY)
                 {
                     f.NewFruit();
                     Segments freshSeg = new Segments(_bodySegments[_bodySegments.Count - 1].xPos, _bodySegments[_bodySegments.Count - 1].yPos);
                     _bodySegments.Add(freshSeg);
+                    _speedIncrement -= .02;
                 }
                 
-                //hitting the wall
+                //Hitting the wall
                 if (_bodySegments[0].xPos == 1 || _bodySegments[0].xPos == WindowWidth - 1
                     || _bodySegments[0].yPos == WindowTop || _bodySegments[0].yPos == WindowHeight - 1)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
                 
-                //overlapping
+                //Overlapping
                 bool isOverlapping = _bodySegments.Any(segment => segment != _bodySegments[0] && segment != _bodySegments[1] &&
                 segment.xPos == _bodySegments[0].xPos && segment.yPos == _bodySegments[0].yPos);
 
@@ -122,6 +106,8 @@ namespace Snake
                 {
                     throw new ArgumentOutOfRangeException();
                 }
+
+
             }
         }
 
