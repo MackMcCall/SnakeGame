@@ -14,8 +14,13 @@ namespace Snake
             Clear();
             Thread.Sleep(100);
             border.MakeBorder();
-            SetCursorPosition(x - 4, y);
+
+            SetCursorPosition(x - 4, y - 2);
             Write("GAME OVER");
+
+            SetCursorPosition(x - 4, y);
+            Write($"Score: {Score.CurrentScore}");
+
             ReadKey();
         }
     }

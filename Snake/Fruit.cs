@@ -16,13 +16,14 @@ namespace Snake
 
         public Fruit()
         {
-            //_random = random;
+
         }
 
         public void NewFruit()
         {
-            FruitX = _random.Next(2, 59);
-            FruitY = _random.Next(1, 24);
+            Score.IncreaseScore();
+            FruitX = _random.Next(2, 47);
+            FruitY = _random.Next(1, 19);
             SetCursorPosition(FruitX, FruitY);
             Write("F");
         }

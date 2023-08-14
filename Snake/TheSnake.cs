@@ -87,7 +87,7 @@ namespace Snake
                 {
                     Segments freshSeg = new Segments(_bodySegments[_bodySegments.Count - 1].xPos, _bodySegments[_bodySegments.Count - 1].yPos);
                     _bodySegments.Add(freshSeg);
-                    _speedIncrement -= .02;
+                    _speedIncrement -= .03;
                     f.NewFruit();
                 }
                 
@@ -106,8 +106,6 @@ namespace Snake
                 {
                     throw new ArgumentOutOfRangeException();
                 }
-
-
             }
         }
 

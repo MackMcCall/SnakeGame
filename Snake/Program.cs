@@ -1,8 +1,8 @@
 ﻿//Trying to make a snake game
 using Snake;
 using static System.Console;
-WindowHeight = 25;
-WindowWidth = 60;
+WindowHeight = 20;
+WindowWidth = 48;
 Title = "Snake";
 CursorVisible = false;
 int x = WindowWidth / 2;
