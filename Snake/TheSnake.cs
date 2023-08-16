@@ -72,11 +72,11 @@ namespace Snake
                         break;
                     case ConsoleKey.UpArrow:
                         UpdateBodyPositions(Directions.Up);
-                        Thread.Sleep(Convert.ToInt16(200 * _speedIncrement));
+                        Thread.Sleep(Convert.ToInt16(210 * _speedIncrement));
                         break;
                     case ConsoleKey.DownArrow:
                         UpdateBodyPositions(Directions.Down);
-                        Thread.Sleep(Convert.ToInt16(200 * _speedIncrement));
+                        Thread.Sleep(Convert.ToInt16(210 * _speedIncrement));
                         break;
                     default:
                         return;

@@ -17,9 +17,11 @@ namespace Snake
 
             SetCursorPosition(x - 4, y - 2);
             Write("GAME OVER");
+            Thread.Sleep(500);
 
             SetCursorPosition(x - 4, y);
             Write($"Score: {Score.CurrentScore}");
+            Thread.Sleep(1000);
 
             ReadKey();
         }
