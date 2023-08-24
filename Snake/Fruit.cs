@@ -19,11 +19,19 @@ namespace Snake
 
         }
 
-        public void NewFruit()
+        public void NewFruit(TheSnake snake)
         {
-            Score.IncreaseScore();
             FruitX = _random.Next(2, 47);
             FruitY = _random.Next(1, 19);
+            foreach (var seg in snake._bodySegments)
+            {
+                if (FruitX == seg.xPos && FruitY == seg.yPos)
+                {
+                    NewFruit(snake);
+                    return;
+                }
+            }
+            Score.IncreaseScore();
             SetCursorPosition(FruitX, FruitY);
             Write("F");
         }

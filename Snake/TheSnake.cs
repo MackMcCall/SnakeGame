@@ -34,6 +34,8 @@ namespace Snake
         {
             var tailXPos = _bodySegments.Last().xPos;
             var tailYPos = _bodySegments.Last().yPos;
+
+
             
             for (int i = _bodySegments.Count - 1; i >= 0; i--)
             {
@@ -54,7 +56,7 @@ namespace Snake
             Write(' ');
         }
 
-        public void PlayGame(ConsoleKeyInfo keyInfo, Fruit f)
+        public void PlayGame(ConsoleKeyInfo keyInfo, Fruit f, int x, int y, Border b)
         {
             while (true)
             {
@@ -64,11 +66,11 @@ namespace Snake
                 {
                     case ConsoleKey.LeftArrow:
                         UpdateBodyPositions(Directions.Left);
-                        Thread.Sleep(Convert.ToInt16(120 * _speedIncrement));
+                        Thread.Sleep(Convert.ToInt16(130 * _speedIncrement));
                         break;
                     case ConsoleKey.RightArrow:
                         UpdateBodyPositions(Directions.Right);
-                        Thread.Sleep(Convert.ToInt16(120 * _speedIncrement));
+                        Thread.Sleep(Convert.ToInt16(130 * _speedIncrement));
                         break;
                     case ConsoleKey.UpArrow:
                         UpdateBodyPositions(Directions.Up);
@@ -82,29 +84,32 @@ namespace Snake
                         return;
                 }
                 
+
                 //Eating the fruit
                 if (_bodySegments[0].xPos == f.FruitX && _bodySegments[0].yPos == f.FruitY)
                 {
                     Segments freshSeg = new Segments(_bodySegments[_bodySegments.Count - 1].xPos, _bodySegments[_bodySegments.Count - 1].yPos);
                     _bodySegments.Add(freshSeg);
                     _speedIncrement -= .03;
-                    f.NewFruit();
+                    f.NewFruit(this);
                 }
                 
+
                 //Hitting the wall
                 if (_bodySegments[0].xPos == 1 || _bodySegments[0].xPos == WindowWidth - 1
                     || _bodySegments[0].yPos == WindowTop || _bodySegments[0].yPos == WindowHeight - 1)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    GameOver.Lose(x, y, b);
                 }
                 
+
                 //Overlapping
                 bool isOverlapping = _bodySegments.Any(segment => segment != _bodySegments[0] && segment != _bodySegments[1] &&
                 segment.xPos == _bodySegments[0].xPos && segment.yPos == _bodySegments[0].yPos);
 
                 if (isOverlapping)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    GameOver.Lose(x, y, b);
                 }
             }
         }

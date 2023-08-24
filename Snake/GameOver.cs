@@ -24,6 +24,7 @@ namespace Snake
             Thread.Sleep(1000);
 
             ReadKey();
+            Environment.Exit(0);
         }
     }
 }
