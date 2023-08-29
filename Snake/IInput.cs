@@ -9,17 +9,28 @@ namespace Snake
 {
     public interface IInput
     {
-        
+
 
         public static ConsoleKeyInfo MonitorInput(ConsoleKeyInfo currentKey)
         {
+
             if (KeyAvailable)
             {
-                ConsoleKeyInfo breakKey = Console.ReadKey(intercept: true);
+                ConsoleKeyInfo nextKey = ReadKey(intercept: true);
 
-                if (breakKey != currentKey)
+                bool isNotOpposite = true;
+
+                if (currentKey.Key == ConsoleKey.LeftArrow && nextKey.Key == ConsoleKey.RightArrow ||
+                    currentKey.Key == ConsoleKey.RightArrow && nextKey.Key == ConsoleKey.LeftArrow ||
+                    currentKey.Key == ConsoleKey.UpArrow && nextKey.Key == ConsoleKey.DownArrow ||
+                    currentKey.Key == ConsoleKey.DownArrow && nextKey.Key == ConsoleKey.UpArrow)
                 {
-                    return breakKey;
+                    isNotOpposite = false;
+                }
+
+                if (nextKey != currentKey && isNotOpposite)
+                {
+                    return nextKey;
                 }
                 else
                     return currentKey;
