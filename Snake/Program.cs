@@ -1,6 +1,10 @@
 ﻿//Trying to make a snake game
-using Snake;
 using static System.Console;
+using Snake;
+using Snake.Character;
+using Snake.Fruits;
+using Snake.Printing;
+//Put here through 10 in a gamesettings class
 WindowHeight = 20;
 WindowWidth = 48;
 Title = "Snake";
@@ -12,26 +16,17 @@ int y = WindowHeight / 2;
 Border border = new Border();
 border.MakeBorder();
 
-TheSnake snake = new TheSnake();
-Fruit f = new Fruit();
+ISnake snake = new GreenSnake();
+Fruit fruit = new Fruit();
 
-
-try
+while (true)
 {
-    while (true)
-    {
-        f.NewFruit(snake);
+    fruit.SpawnFruitBasedOnSnakeLocation(snake);
 
-        ConsoleKeyInfo keyInfo = ReadKey();
-        PlayGame.Play(keyInfo, snake, f, x, y, border);
+    //Want to implement a countdown or a start screen
 
-        //if (keyInfo.Key == ConsoleKey.Escape)
-        //{
-        //    return;
-        //}
-    }
+    ConsoleKeyInfo keyInfo = new ConsoleKeyInfo(' ', ConsoleKey.DownArrow, false, false, false);
+    PlayGame.Play(keyInfo, snake, fruit, x, y, border);
 }
-catch (ArgumentOutOfRangeException)
-{
-    GameOver.Lose(x, y, border);
-}
+
+//Maybe put all this in a GameManager class with a GameManager.Run method

@@ -4,20 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using Snake.Printing;
 
-namespace Snake
+namespace Snake.Character
 {
-    public class TheSnake
+    public class GreenSnake : ISnake
     {
-        public List<Segments> _bodySegments;
-        public double _speedIncrement = 1.0;
-        public TheSnake()
+        public List<Segments> BodySegments { get; set; }
+        public double SpeedIncrement { get; set; } = 1.0;
+        public GreenSnake()
         {
-            _bodySegments = GenerateSegments();
+            BodySegments = GenerateSegments();
         }
-        public TheSnake(List<Segments> segments)
+        public GreenSnake(List<Segments> segments)
         {
-            _bodySegments = segments;
+            BodySegments = segments;
         }
 
         public List<Segments> GenerateSegments()
@@ -32,25 +33,25 @@ namespace Snake
 
         public void UpdateBodyPositions(Directions directionToMove)
         {
-            var tailXPos = _bodySegments.Last().xPos;
-            var tailYPos = _bodySegments.Last().yPos;
+            var tailXPos = BodySegments.Last().xPos;
+            var tailYPos = BodySegments.Last().yPos;
 
 
-            
-            for (int i = _bodySegments.Count - 1; i >= 0; i--)
+
+            for (int i = BodySegments.Count - 1; i >= 0; i--)
             {
                 if (i == 0)
                 {
-                    _bodySegments[i].MoveHead(directionToMove);
+                    BodySegments[i].MoveHead(directionToMove);
                 }
                 else
                 {
-                    _bodySegments[i].MoveSegment(_bodySegments[i - 1]);
+                    BodySegments[i].MoveSegment(BodySegments[i - 1]);
                 }
             }
-            foreach (var segment in _bodySegments)
+            foreach (var segment in BodySegments)
             {
-                Printing.PrintSegment(segment.xPos, segment.yPos);
+                PrintSnake.PrintSegment(segment.xPos, segment.yPos);
             }
             SetCursorPosition(tailXPos, tailYPos);
             Write(' ');
