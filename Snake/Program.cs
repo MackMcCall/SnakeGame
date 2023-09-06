@@ -24,11 +24,6 @@ try
 
         ConsoleKeyInfo keyInfo = ReadKey();
         PlayGame.Play(keyInfo, snake, f, x, y, border);
-
-        //if (keyInfo.Key == ConsoleKey.Escape)
-        //{
-        //    return;
-        //}
     }
 }
 catch (ArgumentOutOfRangeException)
