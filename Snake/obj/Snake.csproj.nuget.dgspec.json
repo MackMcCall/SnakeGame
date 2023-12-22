@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mackm\\OneDrive\\Desktop\\repos\\1SIDEPROJ\\Snake\\Snake\\Snake.csproj": {}
+    "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mackm\\OneDrive\\Desktop\\repos\\1SIDEPROJ\\Snake\\Snake\\Snake.csproj": {
+    "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mackm\\OneDrive\\Desktop\\repos\\1SIDEPROJ\\Snake\\Snake\\Snake.csproj",
+        "projectUniqueName": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj",
         "projectName": "Snake",
-        "projectPath": "C:\\Users\\mackm\\OneDrive\\Desktop\\repos\\1SIDEPROJ\\Snake\\Snake\\Snake.csproj",
+        "projectPath": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj",
         "packagesPath": "C:\\Users\\mackm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mackm\\OneDrive\\Desktop\\repos\\1SIDEPROJ\\Snake\\Snake\\obj\\",
+        "outputPath": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mackm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
