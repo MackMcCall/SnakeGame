@@ -391,3 +391,7 @@ FodyWeavers.xsd
 /.vs/Snake/v17/.futdcache.v2
 >>>>>>> makingclasses
 /Snake/obj/Debug/net7.0/Snake.assets.cache
+/Snake/obj/Debug/net7.0/Snake.AssemblyInfo.cs
+/Snake/obj/Debug/net7.0/Snake.AssemblyInfoInputs.cache
+/Snake/obj/Debug/net7.0/Snake.assets.cache
+/Snake/obj/Debug/net7.0/Snake.GeneratedMSBuildEditorConfig.editorconfig
