@@ -12,8 +12,12 @@ namespace Snake.Character
     {
         public List<Segments> BodySegments { get; set; }
         public double SpeedIncrement { get; set; } = 1.0;
+
+        public ConsoleColor SnakeColor { get; set; } = ConsoleColor.Green;
+
         public GreenSnake()
         {
+            Console.ForegroundColor = SnakeColor;
             BodySegments = GenerateSegments();
         }
         public GreenSnake(List<Segments> segments)
@@ -51,7 +55,7 @@ namespace Snake.Character
             }
             foreach (var segment in BodySegments)
             {
-                PrintSnake.PrintSegment(segment.xPos, segment.yPos);
+                PrintSnake.PrintSegment(segment.xPos, segment.yPos, SnakeColor);
             }
             SetCursorPosition(tailXPos, tailYPos);
             Write(' ');

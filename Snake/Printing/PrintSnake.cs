@@ -9,8 +9,9 @@ namespace Snake.Printing
 {
     public static class PrintSnake
     {
-        public static void PrintSegment(int x, int y)
+        public static void PrintSegment(int x, int y, ConsoleColor snakeColor)
         {
+            Console.ForegroundColor = snakeColor;
             SetCursorPosition(x, y);
             Write("#");
         }

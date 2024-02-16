@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj",
+      "projectUniqueName": "C:\\Users\\mackm\\repos\\SnakeGame\\Snake\\Snake.csproj",
       "projectName": "Snake",
-      "projectPath": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj",
+      "projectPath": "C:\\Users\\mackm\\repos\\SnakeGame\\Snake\\Snake.csproj",
       "packagesPath": "C:\\Users\\mackm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\obj\\",
+      "outputPath": "C:\\Users\\mackm\\repos\\SnakeGame\\Snake\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mackm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

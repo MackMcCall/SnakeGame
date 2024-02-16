@@ -12,6 +12,7 @@ namespace Snake.Printing
         public void MakeBorder()
         {
             Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             for (int i = 1; i < WindowWidth; i++)
             {
                 SetCursorPosition(i, WindowTop);

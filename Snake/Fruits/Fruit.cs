@@ -22,6 +22,7 @@ namespace Snake.Fruits
 
         public void SpawnFruitBasedOnSnakeLocation(ISnake snake)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             FruitX = _random.Next(2, 47);
             FruitY = _random.Next(1, 19);
             foreach (var seg in snake.BodySegments)

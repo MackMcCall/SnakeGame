@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NeWCpazPkks032qiGwVV5uDcJLC/e05pU3TRmaiEx3SwmBZvs874CwSDPjWCg4U2VVB29VnqrXIZK9k5h46mLg==",
+  "dgSpecHash": "6Yq/iI0Q8fTZ8EskblmIXgl1RXZonnhzbPwkfl/XOVOSgDyg5ApA7k89uOKh6gCpwGn3DgYgaTAV1e76qetpfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mackm\\repos\\1SIDEPROJ\\SnakeGame\\Snake\\Snake.csproj",
+  "projectFilePath": "C:\\Users\\mackm\\repos\\SnakeGame\\Snake\\Snake.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

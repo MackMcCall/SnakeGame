@@ -11,6 +11,7 @@ namespace Snake.Printing
     {
         public static void Lose(int x, int y, Border border)
         {
+            Console.ResetColor();
             Clear();
             Thread.Sleep(100);
             border.MakeBorder();
