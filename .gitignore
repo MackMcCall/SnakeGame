@@ -395,3 +395,7 @@ FodyWeavers.xsd
 /Snake/obj/Debug/net7.0/Snake.AssemblyInfoInputs.cache
 /Snake/obj/Debug/net7.0/Snake.assets.cache
 /Snake/obj/Debug/net7.0/Snake.GeneratedMSBuildEditorConfig.editorconfig
+/Snake/obj/project.assets.json
+/Snake/obj/project.nuget.cache
+/Snake/obj/Snake.csproj.nuget.dgspec.json
+/Snake/obj/Snake.csproj.nuget.g.props
