@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Snake.Character;
 using static System.Console;
 
-namespace Snake
+namespace Snake.Fruits
 {
     public class Fruit
     {
-        
+
         private Random _random = new Random();
         public int FruitX;
         public int FruitY;
@@ -19,21 +20,22 @@ namespace Snake
 
         }
 
-        public void NewFruit(TheSnake snake)
+        public void SpawnFruitBasedOnSnakeLocation(ISnake snake)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             FruitX = _random.Next(2, 47);
             FruitY = _random.Next(1, 19);
-            foreach (var seg in snake._bodySegments)
+            foreach (var seg in snake.BodySegments)
             {
                 if (FruitX == seg.xPos && FruitY == seg.yPos)
                 {
-                    NewFruit(snake);
+                    SpawnFruitBasedOnSnakeLocation(snake);
                     return;
                 }
             }
             Score.IncreaseScore();
             SetCursorPosition(FruitX, FruitY);
-            Write("F");
+            Write("ò");
         }
     }
 }

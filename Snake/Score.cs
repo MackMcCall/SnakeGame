@@ -8,7 +8,7 @@ namespace Snake
 {
     public static class Score
     {
-        public static int CurrentScore { get; set; } = -100;
+        public static long CurrentScore { get; set; } = -100;
 
         public static void IncreaseScore()
         {

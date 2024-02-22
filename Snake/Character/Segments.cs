@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Snake
+namespace Snake.Character
 {
     public class Segments
     {
@@ -27,16 +27,16 @@ namespace Snake
         {
             switch (direction)
             {
-                case (Directions.Up):
+                case Directions.Up:
                     yPos--;
                     break;
-                case (Directions.Down):
+                case Directions.Down:
                     yPos++;
                     break;
-                case (Directions.Right):
+                case Directions.Right:
                     xPos++;
                     break;
-                case (Directions.Left):
+                case Directions.Left:
                     xPos--;
                     break;
             }

@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
-namespace Snake
+namespace Snake.Printing
 {
-    public static class Printing
+    public static class PrintSnake
     {
-        public static void PrintSegment(int x, int y)
+        public static void PrintSegment(int x, int y, ConsoleColor snakeColor)
         {
+            Console.ForegroundColor = snakeColor;
             SetCursorPosition(x, y);
             Write("#");
         }

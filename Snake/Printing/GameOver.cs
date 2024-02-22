@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
-namespace Snake
+namespace Snake.Printing
 {
     public static class GameOver
     {
         public static void Lose(int x, int y, Border border)
         {
+            Console.ResetColor();
             Clear();
             Thread.Sleep(100);
             border.MakeBorder();
