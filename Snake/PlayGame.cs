@@ -46,7 +46,10 @@ namespace Snake
                 {
                     Segments freshSeg = new Segments(s.BodySegments[s.BodySegments.Count - 1].xPos, s.BodySegments[s.BodySegments.Count - 1].yPos);
                     s.BodySegments.Add(freshSeg);
-                    s.SpeedIncrement -= .03;
+                    if (s.SpeedIncrement > .03)
+                    {
+                        s.SpeedIncrement -= .03;
+                    }
                     f.SpawnFruitBasedOnSnakeLocation(s);
                 }
 
